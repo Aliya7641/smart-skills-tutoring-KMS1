@@ -7,32 +7,35 @@ function getReferralToken() {
   return params.get('ref') || '';
 }
 
-// Generic form submission
+// Generic form submission function
 function setupForm(formId, type) {
   const form = document.getElementById(formId);
-  if(!form) return;
+  if (!form) return;
 
   form.addEventListener("submit", e => {
     e.preventDefault();
+
     const formData = new FormData(form);
     const data = { type };
 
+    // Copy form data into data object
     formData.forEach((value, key) => {
       data[key] = value;
     });
 
     // Add referral token if student form
-    if(type === "student") data.referral_token = getReferralToken();
+    if (type === "student") data.referral_token = getReferralToken();
 
+    // Send data to Google Apps Script
     fetch(endpoint, {
       method: "POST",
       body: JSON.stringify(data)
     })
     .then(res => res.json())
     .then(res => {
-      if(res.status === "success") {
-        alert("Form submitted successfully!");
-        form.reset();
+      if (res.status === "success") {
+        // Redirect to thankyou page
+        window.location.href = "thankyou.html";
       } else {
         alert("Error: " + res.message);
       }
@@ -41,7 +44,7 @@ function setupForm(formId, type) {
   });
 }
 
-// Setup forms
+// Setup all forms
 setupForm("studentForm", "student");
 setupForm("tutorForm", "tutor");
 setupForm("trialForm", "trial");
