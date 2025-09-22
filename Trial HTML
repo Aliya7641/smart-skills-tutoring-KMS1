@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Trial Booking</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Trial Booking Form</h2>
+  <form id="trialForm">
+    <input type="text" name="student_name" placeholder="Student Name" required><br>
+    <input type="email" name="email" placeholder="Email" required><br>
+    <input type="text" name="subject" placeholder="Subject"><br>
+    <input type="text" name="preferred_time" placeholder="Preferred Time"><br>
+    <input type="checkbox" name="consent"> I consent to Smart Skills contacting me<br>
+    <button type="submit">Book Trial</button>
+  </form>
+  <script src="app.js"></script>
+</body>
+</html>
