@@ -1,0 +1,10 @@
+smart-skills-tutoring/
+│
+├─ index.html          ← Landing page (choose student/tutor/trial/referral)
+├─ student.html        ← Student onboarding form
+├─ tutor.html          ← Tutor application form
+├─ trial.html          ← Trial booking form
+├─ referral.html       ← Referral form
+├─ dashboard.html      ← Student dashboard (placeholder)
+├─ style.css           ← Common styles
+└─ app.js              ← JS handling form submission + referral tokens
